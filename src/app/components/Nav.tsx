@@ -15,7 +15,7 @@ export function Nav() {
 
   const links = [
     { label: "What We Build", href: "#systems" },
-    { label: "Services", href: "#services" },
+    //{ label: "Services", href: "#services" },
     { label: "How It Works", href: "#process" },
     { label: "Our Approach", href: "#philosophy" },
   ];

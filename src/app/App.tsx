@@ -3,7 +3,7 @@ import { ThemeProvider, useTheme } from "./context/theme";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Systems } from "./components/Systems";
-import { Services } from "./components/Services";
+//import { Services } from "./components/Services";
 import { Process } from "./components/Process";
 import { Philosophy } from "./components/Philosophy";
 import { Footer } from "./components/Footer";
@@ -46,7 +46,7 @@ function AppInner() {
         <Nav />
         <Hero />
         <Systems />
-        <Services />
+        //<Services />
         <Process />
         <Philosophy />
         <Footer />
