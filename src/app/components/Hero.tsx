@@ -292,7 +292,7 @@ export function Hero() {
       {/* Badge */}
       <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} style={{ display: "flex", alignItems: "center", gap: 7, padding: "5px 14px 5px 10px", borderRadius: 100, background: t.isDark ? "rgba(255,255,255,0.07)" : "rgba(255,255,255,0.82)", border: `1px solid ${t.accentBorder}`, boxShadow: "0 2px 12px rgba(212,168,200,0.1)", backdropFilter: "blur(12px)", marginBottom: 36, position: "relative" }}>
         <span style={{ fontSize: 14 }}>🌺</span>
-        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 500, color: t.accentText }}>Built for Kauai businesses</span>
+        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 500, color: t.accentText }}>Lino (Hawaiian): radiant, brilliant, illuminated.</span>
       </motion.div>
 
       {/* Headline */}

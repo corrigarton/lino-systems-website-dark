@@ -164,7 +164,7 @@ export function Systems() {
           What we build
         </div>
         <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: t.text, letterSpacing: "-0.025em", margin: 0, maxWidth: 560 }}>
-          Four ways we help local businesses run better.
+          A few ways we help local businesses run better.
         </h2>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: t.text4, marginTop: 14, maxWidth: 500, lineHeight: 1.72 }}>
           Click each to see how it works and what it would mean for a business like yours.
