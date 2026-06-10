@@ -1,321 +1,107 @@
 import { motion } from "motion/react";
 import { BarChart3, Workflow, Brain, LayoutDashboard, ArrowRight } from "lucide-react";
+import { useTheme } from "../context/theme";
 
 const bundles = [
   {
-    icon: BarChart3,
-    title: "Reporting",
-    price: "From $4,800",
-    color: "#3b82f6",
-    colorDim: "rgba(59,130,246,0.08)",
-    colorBorder: "rgba(59,130,246,0.18)",
-    description:
-      "Connected dashboards and automated reports built on your live data sources. Replaces manual export-and-format cycles.",
-    deliverables: [
-      "Source data audit and schema mapping",
-      "Up to 4 dashboard views",
-      "Scheduled PDF/email delivery",
-      "Drill-down filtering",
-      "30-day support window",
-    ],
+    icon: BarChart3, title: "Reporting", price: "From $4,800",
+    tagline: "Connect your data. See your business clearly.",
+    description: "We pull your numbers from wherever they live — your POS, payroll, bank feed, or accounting software — and build a dashboard that updates itself. No more exporting spreadsheets on Sunday night.",
+    deliverables: ["Audit of your current data sources", "Up to 4 dashboard views (revenue, labor, etc.)", "Automated daily or weekly report emails", "30-day support after launch"],
   },
   {
-    icon: Workflow,
-    title: "Automation",
-    price: "From $6,400",
-    color: "#06b6d4",
-    colorDim: "rgba(6,182,212,0.08)",
-    colorBorder: "rgba(6,182,212,0.18)",
-    description:
-      "End-to-end workflow automation across your SaaS tools. Approvals, notifications, data routing, and document generation.",
-    deliverables: [
-      "Process discovery workshop",
-      "Up to 6 workflow nodes",
-      "Error handling and alerting",
-      "Audit log per execution",
-      "45-day support window",
-    ],
+    icon: Workflow, title: "Automation", price: "From $6,400",
+    tagline: "Stop doing things a computer could do instead.",
+    description: "We identify the tasks your team does repeatedly and build software that runs those tasks automatically. Your team keeps their time.",
+    deliverables: ["Process walkthrough to find automation opportunities", "Up to 6 automated workflow steps", "Error alerts so nothing falls through", "45-day support after launch"],
   },
   {
-    icon: Brain,
-    title: "AI Systems",
-    price: "From $9,600",
-    color: "#8b5cf6",
-    colorDim: "rgba(139,92,246,0.08)",
-    colorBorder: "rgba(139,92,246,0.18)",
-    description:
-      "Production-ready AI tools trained on your documents and data. Classification, extraction, summarisation, and generation.",
-    deliverables: [
-      "Use-case scoping and data audit",
-      "Fine-tuning or prompt engineering",
-      "API integration + admin UI",
-      "Human review fallback flows",
-      "60-day support window",
-    ],
+    icon: Brain, title: "AI Tools", price: "From $9,600",
+    tagline: "Practical AI that solves a specific problem.",
+    description: "Not hype — specific tools. We build AI that reads your documents (invoices, contracts, permits), pulls out the information you need, and sends it where it belongs.",
+    deliverables: ["Use-case scoping — we only build what makes sense", "Trained on your actual documents", "Built-in human review for edge cases", "60-day support after launch"],
     featured: true,
   },
   {
-    icon: LayoutDashboard,
-    title: "Custom Applications",
-    price: "From $12,000",
-    color: "#10b981",
-    colorDim: "rgba(16,185,129,0.08)",
-    colorBorder: "rgba(16,185,129,0.18)",
-    description:
-      "Internal tools, portals, and admin systems built to replace spreadsheets and email-driven workflows with structured software.",
-    deliverables: [
-      "Requirements and flow mapping",
-      "Full-stack web application",
-      "Role-based access control",
-      "Data export and audit log",
-      "90-day support window",
-    ],
+    icon: LayoutDashboard, title: "Custom Apps", price: "From $12,000",
+    tagline: "Software built exactly for how your business works.",
+    description: "When no existing tool fits — job tracking, a client portal, an inventory system — we build it from scratch. Yours to own, built to last.",
+    deliverables: ["Detailed requirements and flow mapping", "Full web application, mobile-friendly", "User roles and access control", "90-day support after launch"],
   },
 ];
 
 export function Services() {
+  const t = useTheme();
   return (
-    <section
-      id="services"
-      style={{
-        padding: "140px 32px",
-        background:
-          "linear-gradient(180deg, transparent 0%, rgba(59,130,246,0.03) 30%, rgba(6,182,212,0.03) 70%, transparent 100%)",
-      }}
-    >
+    <section id="services" style={{ padding: "120px 32px" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ marginBottom: 64 }}
-        >
-          <div
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 11,
-              color: "#06b6d4",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              marginBottom: 16,
-            }}
-          >
-            02 — Services
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ marginBottom: 56 }}>
+          <div style={{ display: "inline-block", padding: "3px 12px", borderRadius: 100, background: t.accentDim, border: `1px solid ${t.accentBorder}`, fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, color: t.accentText, marginBottom: 18, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+            Services & Pricing
           </div>
-          <h2
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize: "clamp(32px, 4vw, 48px)",
-              fontWeight: 800,
-              color: "rgba(255,255,255,0.95)",
-              letterSpacing: "-0.025em",
-              margin: 0,
-              maxWidth: 480,
-            }}
-          >
-            Four engagement types.
+          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: t.text, letterSpacing: "-0.025em", margin: 0, maxWidth: 500 }}>
+            Flat-scope engagements. You know what you're getting.
           </h2>
-          <p
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 16,
-              color: "rgba(255,255,255,0.4)",
-              marginTop: 16,
-              maxWidth: 520,
-              lineHeight: 1.7,
-            }}
-          >
-            Each bundle is scoped, priced, and delivered. No retainer bloat,
-            no discovery-that-never-ends. You get a system, not a proposal.
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: t.text4, marginTop: 14, maxWidth: 540, lineHeight: 1.72 }}>
+            Each engagement has a defined scope, a fixed deliverable, and a clear price. No open-ended retainers. You get software — not a consultant on the clock.
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 16,
-          }}
-        >
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(255px, 1fr))", gap: 14 }}>
           {bundles.map((bundle, i) => {
             const Icon = bundle.icon;
             return (
-              <motion.div
-                key={bundle.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+              <motion.div key={bundle.title}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }}
                 style={{
-                  position: "relative",
-                  borderRadius: 16,
-                  background: bundle.featured
-                    ? `radial-gradient(ellipse at 50% 0%, ${bundle.colorDim} 0%, rgba(255,255,255,0.03) 60%)`
-                    : "rgba(255,255,255,0.03)",
-                  border: bundle.featured
-                    ? `1px solid ${bundle.colorBorder}`
-                    : "1px solid rgba(255,255,255,0.07)",
-                  padding: "32px 28px",
-                  backdropFilter: "blur(12px)",
-                  transition: "border-color 0.25s, background 0.25s, transform 0.25s",
-                  cursor: "default",
+                  position: "relative", borderRadius: 16,
+                  background: t.surface,
+                  border: bundle.featured ? `1px solid ${t.accentBorder}` : `1px solid ${t.border}`,
+                  borderTop: bundle.featured ? `2px solid ${t.accent}` : `2px solid ${t.accentDim}`,
+                  padding: "28px 26px",
+                  backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)",
+                  boxShadow: bundle.featured
+                    ? (t.isDark ? "0 8px 32px rgba(0,0,0,0.5)" : "0 8px 32px rgba(212,168,200,0.14)")
+                    : (t.isDark ? "0 4px 20px rgba(0,0,0,0.3)" : "0 4px 20px rgba(0,0,0,0.04)"),
                 }}
-                whileHover={{
-                  y: -4,
-                  transition: { duration: 0.2 },
-                }}
+                whileHover={{ y: -4, transition: { duration: 0.18 } }}
               >
                 {bundle.featured && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: -1,
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      background: bundle.colorDim,
-                      border: `1px solid ${bundle.colorBorder}`,
-                      borderTop: "none",
-                      borderRadius: "0 0 8px 8px",
-                      padding: "3px 14px",
-                      fontSize: 10,
-                      color: bundle.color,
-                      fontFamily: "'JetBrains Mono', monospace",
-                      letterSpacing: "0.06em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    Most complex
-                  </div>
+                  <div style={{ position: "absolute", top: 14, right: 14, padding: "2px 10px", borderRadius: 100, background: t.accentDim, border: `1px solid ${t.accentBorder}`, fontSize: 10, color: t.accentText, fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>Popular</div>
                 )}
 
-                <div
-                  style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 10,
-                    background: bundle.colorDim,
-                    border: `1px solid ${bundle.colorBorder}`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: 20,
-                  }}
-                >
-                  <Icon size={18} color={bundle.color} />
+                <div style={{ width: 38, height: 38, borderRadius: 9, background: t.accentDim, border: `1px solid ${t.accentBorder}`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
+                  <Icon size={16} color={t.accentText} />
                 </div>
 
-                <h3
-                  style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
-                    fontSize: 20,
-                    fontWeight: 700,
-                    color: "rgba(255,255,255,0.95)",
-                    letterSpacing: "-0.015em",
-                    margin: "0 0 8px",
-                  }}
-                >
-                  {bundle.title}
-                </h3>
+                <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 19, fontWeight: 800, color: t.text, letterSpacing: "-0.015em", margin: "0 0 4px" }}>{bundle.title}</h3>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: t.text5, marginBottom: 12 }}>{bundle.price}</div>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: t.text2, margin: "0 0 8px", fontStyle: "italic" }}>{bundle.tagline}</p>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: t.text3, lineHeight: 1.72, margin: "0 0 20px" }}>{bundle.description}</p>
 
-                <div
-                  style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: 12,
-                    color: bundle.color,
-                    marginBottom: 16,
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  {bundle.price}
-                </div>
-
-                <p
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 14,
-                    color: "rgba(255,255,255,0.4)",
-                    lineHeight: 1.7,
-                    margin: "0 0 24px",
-                  }}
-                >
-                  {bundle.description}
-                </p>
-
-                <div
-                  style={{
-                    borderTop: "1px solid rgba(255,255,255,0.06)",
-                    paddingTop: 20,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 10,
-                  }}
-                >
+                <div style={{ borderTop: `1px solid ${t.border}`, paddingTop: 16, display: "flex", flexDirection: "column", gap: 8 }}>
                   {bundle.deliverables.map((d, j) => (
-                    <div
-                      key={j}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: 10,
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: 4,
-                          height: 4,
-                          borderRadius: "50%",
-                          background: bundle.color,
-                          marginTop: 6,
-                          flexShrink: 0,
-                          opacity: 0.7,
-                        }}
-                      />
-                      <span
-                        style={{
-                          fontFamily: "'Inter', sans-serif",
-                          fontSize: 13,
-                          color: "rgba(255,255,255,0.5)",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        {d}
-                      </span>
+                    <div key={j} style={{ display: "flex", alignItems: "flex-start", gap: 8 }}>
+                      <div style={{ width: 14, height: 14, borderRadius: "50%", background: t.accentDim, border: `1px solid ${t.accentBorder}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
+                        <span style={{ fontSize: 8, color: t.accentText, fontWeight: 700 }}>✓</span>
+                      </div>
+                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: t.text3, lineHeight: 1.5 }}>{d}</span>
                     </div>
                   ))}
                 </div>
 
-                <a
-                  href="mailto:hello@lino.systems"
-                  style={{
-                    marginTop: 28,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 6,
-                    fontSize: 13,
-                    fontWeight: 500,
-                    color: bundle.color,
-                    fontFamily: "'Inter', sans-serif",
-                    textDecoration: "none",
-                    transition: "gap 0.2s",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.gap = "10px";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.gap = "6px";
-                  }}
-                >
-                  Enquire
-                  <ArrowRight size={14} />
+                <a href="mailto:corrina@lino.systems"
+                  style={{ marginTop: 22, display: "flex", alignItems: "center", gap: 5, fontSize: 12, fontWeight: 600, color: t.accentText, fontFamily: "'Inter', sans-serif", textDecoration: "none", transition: "gap 0.18s" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.gap = "9px"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.gap = "5px"; }}>
+                  Talk to us about this <ArrowRight size={12} />
                 </a>
               </motion.div>
             );
           })}
         </div>
       </div>
+      <style>{`@media(max-width:640px){#services{padding:64px 20px 72px!important}}`}</style>
     </section>
   );
 }

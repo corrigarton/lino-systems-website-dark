@@ -1,227 +1,117 @@
 import { motion } from "motion/react";
 import { useState } from "react";
-import {
-  BarChart3,
-  Workflow,
-  Brain,
-  LayoutDashboard,
-  TrendingUp,
-  CheckCircle2,
-  Clock,
-  AlertCircle,
-  Activity,
-  Zap,
-  ArrowUpRight,
-} from "lucide-react";
+import { BarChart3, Workflow, Brain, LayoutDashboard, TrendingUp, Activity, ArrowUpRight } from "lucide-react";
+import { useTheme } from "../context/theme";
 
 const systems = [
   {
-    id: "reporting",
-    icon: BarChart3,
-    title: "Executive Reporting Suite",
-    description:
-      "Real-time dashboards pulling from ERP, CRM, and operational databases. Unified KPI views built for decision-making, not data exploration.",
-    tag: "Reporting & Analytics",
-    color: "#3b82f6",
-    colorDim: "rgba(59,130,246,0.1)",
-    colorBorder: "rgba(59,130,246,0.2)",
-    preview: <ReportingPreview />,
+    id: "reporting", icon: BarChart3, tag: "Reporting & Dashboards",
+    title: "One dashboard for everything",
+    plain: "Right now, your sales numbers are in your POS, your labor costs are in a payroll app, and your expenses are in QuickBooks. To see the full picture, you're exporting spreadsheets on Sunday night. We build a single dashboard that pulls it all together — automatically, in real time.",
+    bullets: ["Connects your POS, payroll, bank, and accounting software", "Updates itself — no more manual exports", "See profit, labor cost, and sales side by side", "Shareable reports for managers, owners, or investors"],
   },
   {
-    id: "automation",
-    icon: Workflow,
-    title: "Operations Automation Layer",
-    description:
-      "Multi-step workflows connecting your SaaS stack — approvals, notifications, data sync, and document generation running without manual intervention.",
-    tag: "Workflow Automation",
-    color: "#06b6d4",
-    colorDim: "rgba(6,182,212,0.1)",
-    colorBorder: "rgba(6,182,212,0.2)",
-    preview: <AutomationPreview />,
+    id: "automation", icon: Workflow, tag: "Workflow Automation",
+    title: "Stop doing the same thing twice",
+    plain: "If your team does the same task every week — sending invoices, entering data from one system into another, chasing approvals over text or email — that's something a computer can do instead. We map your repetitive processes and build software that runs them without anyone touching it.",
+    bullets: ["Invoices sent automatically when a job closes", "New customer info synced across your tools instantly", "Approval requests routed to the right person", "Alerts when something needs your attention"],
   },
   {
-    id: "ai",
-    icon: Brain,
-    title: "AI Document Intelligence",
-    description:
-      "Classify, extract, and route data from unstructured documents. Built on language models, calibrated on your data, integrated into your existing stack.",
-    tag: "AI Systems",
-    color: "#8b5cf6",
-    colorDim: "rgba(139,92,246,0.1)",
-    colorBorder: "rgba(139,92,246,0.2)",
-    preview: <AIPreview />,
+    id: "ai", icon: Brain, tag: "AI Tools",
+    title: "Let AI handle your paperwork",
+    plain: "AI isn't just for big tech companies. We build practical AI tools for real business problems: reading contracts and pulling out key terms, sorting piles of invoices, answering customer questions from your own documents.",
+    bullets: ["Extract key data from invoices, permits, or contracts", "Summarize long documents in plain language", "Answer staff or customer questions from your internal docs", "Flag inconsistencies or missing info automatically"],
   },
   {
-    id: "apps",
-    icon: LayoutDashboard,
-    title: "Internal Operations Portal",
-    description:
-      "Purpose-built admin tools, approval queues, and data entry forms — replacing spreadsheets and email threads with structured, auditable systems.",
-    tag: "Custom Applications",
-    color: "#10b981",
-    colorDim: "rgba(16,185,129,0.1)",
-    colorBorder: "rgba(16,185,129,0.2)",
-    preview: <PortalPreview />,
+    id: "apps", icon: LayoutDashboard, tag: "Custom Applications",
+    title: "Software built for how you work",
+    plain: "Sometimes you need software that doesn't exist yet — because your business has a specific process that no off-the-shelf tool handles well. We build custom web applications: job tracking portals, client-facing request forms, internal approval systems, inventory tools.",
+    bullets: ["Job or project tracking boards for your team", "Client portals for estimates, approvals, or updates", "Inventory and supply management tools", "Replaces the spreadsheet your team has outgrown"],
   },
 ];
 
 function ReportingPreview() {
-  const bars = [65, 82, 58, 90, 74, 88, 96, 71, 83, 67, 92, 78];
+  const t = useTheme();
+  const bars = [55, 72, 60, 88, 68, 82, 94, 65, 78, 60, 90, 74];
+  const glass = { background: t.surface, border: `1px solid ${t.border}`, backdropFilter: "blur(12px)" as const };
   return (
-    <div style={{ padding: "20px 20px 12px", height: "100%" }}>
-      {/* Mini KPI row */}
+    <div style={{ padding: "20px 20px 14px" }}>
       <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
-        {[
-          { label: "Revenue", value: "$2.4M", up: true },
-          { label: "Margin", value: "38.2%", up: true },
-          { label: "Churn", value: "1.8%", up: false },
-        ].map((kpi, i) => (
-          <div
-            key={i}
-            style={{
-              flex: 1,
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.07)",
-              borderRadius: 8,
-              padding: "8px 10px",
-            }}
-          >
-            <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)", fontFamily: "'Inter', sans-serif", marginBottom: 3 }}>
-              {kpi.label}
-            </div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.9)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              {kpi.value}
-            </div>
+        {[{ label: "Revenue MTD", value: "$94,200", up: true }, { label: "Labor Cost", value: "28.4%", up: false }, { label: "Net Margin", value: "22.1%", up: true }].map((kpi, i) => (
+          <div key={i} style={{ flex: 1, ...glass, borderRadius: 8, padding: "8px 10px" }}>
+            <div style={{ fontSize: 10, color: t.text4, fontFamily: "'Inter', sans-serif", marginBottom: 3 }}>{kpi.label}</div>
+            <div style={{ fontSize: 13, fontWeight: 700, color: t.text, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{kpi.value}</div>
             <div style={{ display: "flex", alignItems: "center", gap: 2, marginTop: 2 }}>
-              <TrendingUp size={10} color={kpi.up ? "#10b981" : "#ef4444"} style={{ transform: kpi.up ? "none" : "scaleY(-1)" }} />
-              <span style={{ fontSize: 9, color: kpi.up ? "#10b981" : "#ef4444", fontFamily: "'JetBrains Mono', monospace" }}>
-                {kpi.up ? "+4.2%" : "-0.3%"}
-              </span>
+              <TrendingUp size={9} color={kpi.up ? "#16a34a" : "#dc2626"} style={{ transform: kpi.up ? "none" : "scaleY(-1)" }} />
+              <span style={{ fontSize: 9, color: kpi.up ? "#16a34a" : "#dc2626", fontFamily: "'JetBrains Mono', monospace" }}>{kpi.up ? "+4.2%" : "+1.1%"}</span>
             </div>
           </div>
         ))}
       </div>
-      {/* Bar chart */}
-      <div style={{ display: "flex", alignItems: "flex-end", gap: 4, height: 60 }}>
+      <div style={{ display: "flex", alignItems: "flex-end", gap: 4, height: 64 }}>
         {bars.map((h, i) => (
-          <div
-            key={i}
-            style={{
-              flex: 1,
-              height: `${h}%`,
-              borderRadius: "3px 3px 0 0",
-              background: i === 10
-                ? "linear-gradient(180deg, #60a5fa 0%, #3b82f6 100%)"
-                : "rgba(59,130,246,0.25)",
-              transition: "height 0.3s ease",
-            }}
-          />
+          <div key={i} style={{ flex: 1, height: `${h}%`, borderRadius: "3px 3px 0 0", background: i === 10 ? t.gradientBtn : (t.isDark ? "rgba(212,168,200,0.18)" : "rgba(212,168,200,0.28)") }} />
         ))}
       </div>
       <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6 }}>
-        <span style={{ fontSize: 9, color: "rgba(255,255,255,0.2)", fontFamily: "'JetBrains Mono', monospace" }}>Jan</span>
-        <span style={{ fontSize: 9, color: "rgba(255,255,255,0.2)", fontFamily: "'JetBrains Mono', monospace" }}>Dec</span>
+        <span style={{ fontSize: 9, color: t.text5, fontFamily: "'JetBrains Mono', monospace" }}>Jan</span>
+        <span style={{ fontSize: 9, color: t.text5, fontFamily: "'JetBrains Mono', monospace" }}>Dec</span>
       </div>
     </div>
   );
 }
 
 function AutomationPreview() {
+  const t = useTheme();
   const flows = [
-    { name: "Invoice → Approval", status: "running", runs: 142 },
-    { name: "New Deal → Onboard", status: "success", runs: 38 },
-    { name: "Support → Escalation", status: "success", runs: 71 },
-    { name: "Data Sync → Warehouse", status: "running", runs: 1024 },
+    { name: "Job closed → Invoice sent", running: true, count: "142 this month" },
+    { name: "New client → Welcome email", running: false, count: "38 this month" },
+    { name: "Timesheet → Payroll sync", running: false, count: "Daily" },
+    { name: "Low stock → Purchase alert", running: true, count: "As needed" },
   ];
+  const glass = { background: t.surface, border: `1px solid ${t.border}`, backdropFilter: "blur(12px)" as const };
   return (
-    <div style={{ padding: "16px 20px", display: "flex", flexDirection: "column", gap: 6 }}>
-      {flows.map((flow, i) => (
-        <div
-          key={i}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "8px 12px",
-            background: "rgba(255,255,255,0.03)",
-            border: "1px solid rgba(255,255,255,0.06)",
-            borderRadius: 7,
-          }}
-        >
+    <div style={{ padding: "16px 20px", display: "flex", flexDirection: "column", gap: 7 }}>
+      <div style={{ fontSize: 11, color: t.text4, fontFamily: "'Inter', sans-serif", fontWeight: 500, marginBottom: 4 }}>Active automations</div>
+      {flows.map((f, i) => (
+        <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "9px 12px", ...glass, borderRadius: 8 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: "50%",
-                background: flow.status === "running" ? "#06b6d4" : "#10b981",
-                boxShadow: `0 0 6px ${flow.status === "running" ? "#06b6d4" : "#10b981"}`,
-                animation: flow.status === "running" ? "pulse 2s infinite" : "none",
-              }}
-            />
-            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.75)", fontFamily: "'Inter', sans-serif" }}>
-              {flow.name}
-            </span>
+            <div style={{ width: 6, height: 6, borderRadius: "50%", background: f.running ? t.accent : "#16a34a", flexShrink: 0, animation: f.running ? "pu 2s infinite" : "none" }} />
+            <span style={{ fontSize: 12, color: t.text2, fontFamily: "'Inter', sans-serif" }}>{f.name}</span>
           </div>
-          <span style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", fontFamily: "'JetBrains Mono', monospace" }}>
-            {flow.runs.toLocaleString()}×
-          </span>
+          <span style={{ fontSize: 10, color: t.text5, fontFamily: "'JetBrains Mono', monospace", whiteSpace: "nowrap", marginLeft: 8 }}>{f.count}</span>
         </div>
       ))}
-      <style>{`@keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:0.4 } }`}</style>
+      <style>{`@keyframes pu{0%,100%{opacity:1}50%{opacity:0.3}}`}</style>
     </div>
   );
 }
 
 function AIPreview() {
+  const t = useTheme();
   const docs = [
-    { name: "invoice_q4_acme.pdf", type: "Invoice", conf: 98 },
-    { name: "contract_renewal_xyz.pdf", type: "Contract", conf: 94 },
-    { name: "statement_nov.pdf", type: "Statement", conf: 99 },
+    { name: "Invoice_HawaiiSupply.pdf", type: "Invoice", conf: 99 },
+    { name: "Contract_Renovation_Kauai.pdf", type: "Contract", conf: 94 },
+    { name: "Permit_Hanalei_2025.pdf", type: "Permit", conf: 97 },
   ];
+  const glass = { background: t.surface, border: `1px solid ${t.border}`, backdropFilter: "blur(12px)" as const };
   return (
     <div style={{ padding: "16px 20px", display: "flex", flexDirection: "column", gap: 8 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-        <Activity size={12} color="#8b5cf6" />
-        <span style={{ fontSize: 10, color: "rgba(255,255,255,0.35)", fontFamily: "'JetBrains Mono', monospace", letterSpacing: "0.04em" }}>
-          CLASSIFICATION ENGINE · LIVE
-        </span>
+        <Activity size={11} color={t.accentAlt} />
+        <span style={{ fontSize: 11, color: t.text4, fontFamily: "'Inter', sans-serif", fontWeight: 500 }}>Documents processed today</span>
       </div>
       {docs.map((doc, i) => (
-        <div
-          key={i}
-          style={{
-            padding: "10px 12px",
-            background: "rgba(255,255,255,0.03)",
-            border: "1px solid rgba(255,255,255,0.06)",
-            borderRadius: 7,
-          }}
-        >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.6)", fontFamily: "'Inter', sans-serif", maxWidth: 140, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-              {doc.name}
-            </span>
-            <span
-              style={{
-                fontSize: 9,
-                padding: "2px 8px",
-                borderRadius: 4,
-                background: "rgba(139,92,246,0.15)",
-                color: "#a78bfa",
-                fontFamily: "'JetBrains Mono', monospace",
-                letterSpacing: "0.04em",
-              }}
-            >
-              {doc.type}
-            </span>
+        <div key={i} style={{ padding: "10px 12px", ...glass, borderRadius: 8 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <span style={{ fontSize: 11, color: t.text2, fontFamily: "'Inter', sans-serif", maxWidth: 140, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{doc.name}</span>
+            <span style={{ fontSize: 9, padding: "2px 8px", borderRadius: 4, background: t.accentDim, color: t.accentText, fontFamily: "'JetBrains Mono', monospace" }}>{doc.type}</span>
           </div>
           <div style={{ marginTop: 6, display: "flex", alignItems: "center", gap: 6 }}>
-            <div style={{ flex: 1, height: 2, borderRadius: 1, background: "rgba(255,255,255,0.08)" }}>
-              <div style={{ width: `${doc.conf}%`, height: "100%", background: "#8b5cf6", borderRadius: 1 }} />
+            <div style={{ flex: 1, height: 2, borderRadius: 1, background: t.isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)" }}>
+              <div style={{ width: `${doc.conf}%`, height: "100%", background: t.gradientBtn, borderRadius: 1 }} />
             </div>
-            <span style={{ fontSize: 9, color: "rgba(255,255,255,0.3)", fontFamily: "'JetBrains Mono', monospace" }}>
-              {doc.conf}%
-            </span>
+            <span style={{ fontSize: 9, color: t.text5, fontFamily: "'JetBrains Mono', monospace" }}>{doc.conf}%</span>
           </div>
         </div>
       ))}
@@ -230,297 +120,125 @@ function AIPreview() {
 }
 
 function PortalPreview() {
+  const t = useTheme();
   const items = [
-    { ref: "REQ-2847", title: "Vendor onboarding — Apex Co.", status: "Pending", priority: "High" },
-    { ref: "REQ-2846", title: "Budget approval Q1 2025", status: "Approved", priority: "Med" },
-    { ref: "REQ-2845", title: "IT access — new hire batch", status: "In Review", priority: "Low" },
+    { ref: "JOB-0041", title: "Kitchen remodel — Princeville", status: "In Progress", pct: 65 },
+    { ref: "JOB-0040", title: "Solar panel install — Lihue", status: "Awaiting permit", pct: 30 },
+    { ref: "JOB-0039", title: "Deck build — Poipu", status: "Complete", pct: 100 },
   ];
+  const glass = { background: t.surface, border: `1px solid ${t.border}`, backdropFilter: "blur(12px)" as const };
   return (
-    <div style={{ padding: "16px 20px", display: "flex", flexDirection: "column", gap: 6 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-        <span style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", fontFamily: "'JetBrains Mono', monospace", letterSpacing: "0.04em" }}>
-          APPROVAL QUEUE
-        </span>
-        <span style={{ fontSize: 10, color: "#10b981", fontFamily: "'JetBrains Mono', monospace" }}>3 pending</span>
-      </div>
+    <div style={{ padding: "16px 20px", display: "flex", flexDirection: "column", gap: 7 }}>
+      <div style={{ fontSize: 11, color: t.text4, fontFamily: "'Inter', sans-serif", fontWeight: 500, marginBottom: 4 }}>Active jobs</div>
       {items.map((item, i) => (
-        <div
-          key={i}
-          style={{
-            padding: "9px 12px",
-            background: "rgba(255,255,255,0.03)",
-            border: "1px solid rgba(255,255,255,0.06)",
-            borderRadius: 7,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <div>
-            <div style={{ fontSize: 9, color: "rgba(255,255,255,0.25)", fontFamily: "'JetBrains Mono', monospace", marginBottom: 3 }}>
-              {item.ref}
+        <div key={i} style={{ padding: "10px 12px", ...glass, borderRadius: 8 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+            <div>
+              <div style={{ fontSize: 9, color: t.text5, fontFamily: "'JetBrains Mono', monospace", marginBottom: 2 }}>{item.ref}</div>
+              <div style={{ fontSize: 12, color: t.text2, fontFamily: "'Inter', sans-serif" }}>{item.title}</div>
             </div>
-            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.75)", fontFamily: "'Inter', sans-serif" }}>
-              {item.title}
-            </div>
+            <span style={{ fontSize: 9, padding: "2px 8px", borderRadius: 4, background: item.pct === 100 ? "rgba(22,163,74,0.08)" : item.status === "In Progress" ? t.accentDim : "rgba(249,115,22,0.08)", color: item.pct === 100 ? "#16a34a" : item.status === "In Progress" ? t.accentText : "#f97316", fontFamily: "'JetBrains Mono', monospace", whiteSpace: "nowrap", marginLeft: 6 }}>{item.status}</span>
           </div>
-          <span
-            style={{
-              fontSize: 9,
-              padding: "2px 8px",
-              borderRadius: 4,
-              background:
-                item.status === "Approved"
-                  ? "rgba(16,185,129,0.15)"
-                  : item.status === "Pending"
-                  ? "rgba(234,179,8,0.15)"
-                  : "rgba(59,130,246,0.15)",
-              color:
-                item.status === "Approved"
-                  ? "#10b981"
-                  : item.status === "Pending"
-                  ? "#eab308"
-                  : "#60a5fa",
-              fontFamily: "'JetBrains Mono', monospace",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {item.status}
-          </span>
+          <div style={{ height: 3, borderRadius: 2, background: t.isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)" }}>
+            <div style={{ width: `${item.pct}%`, height: "100%", borderRadius: 2, background: item.pct === 100 ? "#16a34a" : t.gradientBtn }} />
+          </div>
         </div>
       ))}
     </div>
   );
 }
 
+const previews = [ReportingPreview, AutomationPreview, AIPreview, PortalPreview];
+
 export function Systems() {
-  const [activeSystem, setActiveSystem] = useState(0);
-  const system = systems[activeSystem];
+  const t = useTheme();
+  const [active, setActive] = useState(0);
+  const system = systems[active];
   const Icon = system.icon;
+  const Preview = previews[active];
 
   return (
-    <section
-      id="systems"
-      style={{
-        padding: "140px 32px",
-        maxWidth: 1200,
-        margin: "0 auto",
-      }}
-    >
-      {/* Section header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        style={{ marginBottom: 64 }}
-      >
-        <div
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 11,
-            color: "#60a5fa",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            marginBottom: 16,
-          }}
-        >
-          01 — Systems
+    <section id="systems" style={{ padding: "120px 32px", maxWidth: 1200, margin: "0 auto" }}>
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ marginBottom: 52 }}>
+        <div style={{ display: "inline-block", padding: "3px 12px", borderRadius: 100, background: t.accentDim, border: `1px solid ${t.accentBorder}`, fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, color: t.accentText, marginBottom: 18, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+          What we build
         </div>
-        <h2
-          style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontSize: "clamp(32px, 4vw, 48px)",
-            fontWeight: 800,
-            color: "rgba(255,255,255,0.95)",
-            letterSpacing: "-0.025em",
-            margin: 0,
-            maxWidth: 560,
-          }}
-        >
-          What we build.
+        <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, color: t.text, letterSpacing: "-0.025em", margin: 0, maxWidth: 560 }}>
+          Four ways we help local businesses run better.
         </h2>
-        <p
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 16,
-            color: "rgba(255,255,255,0.4)",
-            marginTop: 16,
-            maxWidth: 480,
-            lineHeight: 1.7,
-          }}
-        >
-          Four categories of system, deployed across dozens of businesses.
-          Each one replaces a manual process with something that runs itself.
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: t.text4, marginTop: 14, maxWidth: 500, lineHeight: 1.72 }}>
+          Click each to see how it works and what it would mean for a business like yours.
         </p>
       </motion.div>
 
-      {/* Tab selector */}
-      <div
-        style={{
-          display: "flex",
-          gap: 8,
-          marginBottom: 32,
-          flexWrap: "wrap",
-        }}
-      >
+      {/* Tabs */}
+      <div style={{ display: "flex", gap: 6, marginBottom: 20, flexWrap: "wrap" }}>
         {systems.map((s, i) => {
           const SIcon = s.icon;
-          const active = i === activeSystem;
+          const isActive = i === active;
           return (
-            <button
-              key={s.id}
-              onClick={() => setActiveSystem(i)}
+            <button key={s.id} onClick={() => setActive(i)}
               style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "9px 18px",
-                borderRadius: 8,
-                border: active
-                  ? `1px solid ${s.colorBorder}`
-                  : "1px solid rgba(255,255,255,0.07)",
-                background: active ? s.colorDim : "rgba(255,255,255,0.03)",
-                color: active ? s.color : "rgba(255,255,255,0.4)",
-                fontSize: 13,
-                fontWeight: 500,
-                fontFamily: "'Inter', sans-serif",
-                cursor: "pointer",
-                transition: "all 0.2s",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              <SIcon size={14} />
-              <span className="tab-label">{s.tag.split(" & ")[0]}</span>
+                display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8,
+                border: isActive ? `1px solid ${t.accentBorder}` : `1px solid ${t.border}`,
+                background: isActive ? t.accentDim : t.isDark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.92)",
+                color: isActive ? t.accentText : t.text4,
+                fontSize: 13, fontWeight: 500, fontFamily: "'Inter', sans-serif",
+                cursor: "pointer", transition: "all 0.18s", backdropFilter: "blur(8px)",
+              }}>
+              <SIcon size={13} />
+              {s.tag.split(" ")[0]}
             </button>
           );
         })}
       </div>
 
-      {/* Main card */}
-      <motion.div
-        key={activeSystem}
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35 }}
+      {/* Card */}
+      <motion.div key={active} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.28 }}
         style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1.2fr",
-          gap: 0,
-          borderRadius: 16,
-          overflow: "hidden",
-          border: "1px solid rgba(255,255,255,0.08)",
-          background: "rgba(255,255,255,0.02)",
-          backdropFilter: "blur(20px)",
-          minHeight: 380,
+          display: "grid", gridTemplateColumns: "1fr 1.1fr",
+          borderRadius: 18, overflow: "hidden",
+          border: `1px solid ${t.border}`,
+          boxShadow: t.isDark ? "0 12px 48px rgba(0,0,0,0.5)" : "0 12px 48px rgba(212,168,200,0.18), 0 2px 8px rgba(0,0,0,0.06)",
+          background: t.surface,
+          backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)",
+          minHeight: 400,
         }}
         className="systems-card"
       >
-        {/* Left: info */}
-        <div
-          style={{
-            padding: "48px 48px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            borderRight: "1px solid rgba(255,255,255,0.06)",
-          }}
-        >
+        <div style={{ padding: "44px", display: "flex", flexDirection: "column", justifyContent: "space-between", borderRight: `1px solid ${t.border}` }}>
           <div>
-            <div
-              style={{
-                width: 44,
-                height: 44,
-                borderRadius: 10,
-                background: system.colorDim,
-                border: `1px solid ${system.colorBorder}`,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: 24,
-              }}
-            >
-              <Icon size={20} color={system.color} />
+            <div style={{ width: 40, height: 40, borderRadius: 9, background: t.accentDim, border: `1px solid ${t.accentBorder}`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
+              <Icon size={18} color={t.accentText} />
             </div>
-            <div
-              style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 10,
-                color: system.color,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                marginBottom: 12,
-              }}
-            >
-              {system.tag}
+            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, color: t.accentText, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 10 }}>{system.tag}</div>
+            <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "clamp(20px, 2.5vw, 26px)", fontWeight: 800, color: t.text, letterSpacing: "-0.02em", margin: "0 0 14px" }}>{system.title}</h3>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: t.text3, lineHeight: 1.8, margin: "0 0 22px" }}>{system.plain}</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {system.bullets.map((b, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 9 }}>
+                  <div style={{ width: 15, height: 15, borderRadius: "50%", background: t.accentDim, border: `1px solid ${t.accentBorder}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
+                    <span style={{ fontSize: 8, color: t.accentText, fontWeight: 700 }}>✓</span>
+                  </div>
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: t.text3, lineHeight: 1.55 }}>{b}</span>
+                </div>
+              ))}
             </div>
-            <h3
-              style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: "clamp(22px, 2.5vw, 28px)",
-                fontWeight: 700,
-                color: "rgba(255,255,255,0.95)",
-                letterSpacing: "-0.02em",
-                margin: "0 0 16px",
-              }}
-            >
-              {system.title}
-            </h3>
-            <p
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 15,
-                color: "rgba(255,255,255,0.45)",
-                lineHeight: 1.75,
-                margin: 0,
-              }}
-            >
-              {system.description}
-            </p>
           </div>
-          <a
-            href="mailto:hello@lino.systems"
-            style={{
-              marginTop: 36,
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              fontSize: 13,
-              fontWeight: 500,
-              color: system.color,
-              fontFamily: "'Inter', sans-serif",
-              textDecoration: "none",
-              transition: "gap 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.gap = "10px";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.gap = "6px";
-            }}
-          >
-            Discuss this system
-            <ArrowUpRight size={14} />
+          <a href="mailto:corrina@lino.systems"
+            style={{ marginTop: 30, display: "inline-flex", alignItems: "center", gap: 5, fontSize: 13, fontWeight: 600, color: t.accentText, fontFamily: "'Inter', sans-serif", textDecoration: "none", transition: "gap 0.18s" }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.gap = "9px"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.gap = "5px"; }}>
+            Ask us about this <ArrowUpRight size={13} />
           </a>
         </div>
 
-        {/* Right: preview */}
-        <div
-          style={{
-            background: `radial-gradient(ellipse at 60% 30%, ${system.colorDim} 0%, rgba(5,8,15,0.5) 60%)`,
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          {system.preview}
+        <div style={{ background: t.isDark ? "rgba(255,255,255,0.025)" : "rgba(212,168,200,0.06)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <Preview />
         </div>
       </motion.div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .systems-card { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
+      <style>{`@media(max-width:768px){.systems-card{grid-template-columns:1fr!important}} @media(max-width:640px){#systems{padding:64px 20px 72px!important}}`}</style>
     </section>
   );
 }
