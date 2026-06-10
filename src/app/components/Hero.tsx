@@ -50,7 +50,7 @@ function BudgetReport() {
           );
         })}
       </div>
-      <div style={{ marginTop: 12, paddingTop: 10, borderTop: `1px solid ${t.border}`, fontFamily: "'Inter', sans-serif", fontSize: 8.5, color: t.text5, textAlign: "center" }}>No spreadsheet needed — it's always up to date</div>
+      <div style={{ marginTop: 12, paddingTop: 10, borderTop: `1px solid ${t.border}`, fontFamily: "'Inter', sans-serif", fontSize: 8.5, color: t.text5, textAlign: "center" }}>No spreadsheet needed. Always up to date.</div>
     </div>
   );
 }
@@ -106,7 +106,7 @@ function BudgetReportMobile() {
         })}
       </div>
 
-      <div style={{ marginTop: 9, paddingTop: 8, borderTop: `1px solid ${t.border}`, fontFamily: "'Inter', sans-serif", fontSize: 9, color: t.text5, textAlign: "center" }}>No spreadsheet needed — always up to date</div>
+      <div style={{ marginTop: 9, paddingTop: 8, borderTop: `1px solid ${t.border}`, fontFamily: "'Inter', sans-serif", fontSize: 9, color: t.text5, textAlign: "center" }}>No spreadsheet needed. Always up to date.</div>
     </div>
   );
 }
@@ -305,7 +305,7 @@ export function Hero() {
 
       {/* Subtext */}
       <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.18 }} style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(15px, 1.8vw, 18px)", color: t.text3, lineHeight: 1.78, maxWidth: 540, textAlign: "center", margin: "24px 0 0", padding: "0 32px", fontWeight: 400, position: "relative" }}>
-        Your sales are in one app, payroll in another, inventory in a spreadsheet. We connect them — and build tools that save your team hours every week.
+        Your sales are in one app, payroll in another, inventory in a spreadsheet. We connect them and build tools that save your team hours every week.
       </motion.p>
 
       {/* Value props */}
@@ -320,7 +320,7 @@ export function Hero() {
         <a href="mailto:corrina@lino.systems" style={{ display: "flex", alignItems: "center", gap: 7, padding: "12px 26px", borderRadius: 10, background: t.isDark ? t.surface : "#111111", color: t.isDark ? t.text : "white", border: t.isDark ? `1px solid ${t.border}` : "none", fontSize: 14, fontWeight: 600, fontFamily: "'Inter', sans-serif", textDecoration: "none", transition: "opacity 0.15s, transform 0.18s", letterSpacing: "-0.01em" }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.opacity = "0.82"; (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)"; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)"; }}>
-          Talk to us — it's free <ArrowRight size={15} />
+          Talk to us, it's free <ArrowRight size={15} />
         </a>
         <a href="#systems" style={{ display: "flex", alignItems: "center", gap: 7, padding: "12px 26px", borderRadius: 10, background: t.isDark ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.78)", border: `1px solid ${t.border}`, color: t.text3, fontSize: 14, fontWeight: 500, fontFamily: "'Inter', sans-serif", textDecoration: "none", transition: "all 0.15s", backdropFilter: "blur(8px)", letterSpacing: "-0.01em" }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = t.isDark ? "rgba(255,255,255,0.09)" : "rgba(255,255,255,0.95)"; }}

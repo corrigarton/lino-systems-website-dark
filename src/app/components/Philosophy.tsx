@@ -167,7 +167,7 @@ export function Philosophy() {
           .principles-grid{grid-template-columns:1fr 1fr!important}
         }
         @media(max-width:640px){
-          #philosophy{padding:16px 20px 36px!important}
+          #philosophy{padding:28px 20px 20px!important}
           .phil-photo-col{display:none!important}
           .phil-float-tag{display:none!important}
           .philosophy-intro{grid-template-columns:1fr!important;margin-bottom:48px!important}

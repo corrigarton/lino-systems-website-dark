@@ -4,22 +4,22 @@ import { useTheme } from "../context/theme";
 
 const steps = [
   {
-    number: "01", icon: Search, title: "Audit", duration: "1–2 days",
+    number: "01", icon: Search, title: "Audit", duration: "1 to 2 days",
     headline: "We understand your operation first.",
-    description: "Before we write a single line of code, we spend time understanding how your business works — where your data lives, what your team does manually, and where the real pain is. A lot of what businesses think they need turns out to be simpler than they expect.",
-    details: ["Walk through your current tools and workflows", "Identify what's actually worth automating", "Map your data sources (POS, payroll, bank, etc.)", "Give you a clear scope and price — no surprises"],
+    description: "Before we write a single line of code, we spend time understanding how your business works: where your data lives, what your team does manually, and where the real pain is. A lot of what businesses think they need turns out to be simpler than they expect.",
+    details: ["Walk through your current tools and workflows", "Identify what's actually worth automating", "Map your data sources (POS, payroll, bank, etc.)", "Give you a clear scope and price, no surprises"],
   },
   {
-    number: "02", icon: Hammer, title: "Build", duration: "1–6 weeks",
+    number: "02", icon: Hammer, title: "Build", duration: "1 to 6 weeks",
     headline: "You see it working within the first week.",
-    description: "We build in short cycles. Within days of starting, you'll see a working version — not a mockup or a slide deck. We check in regularly and make sure the system matches how your team works in real life.",
-    details: ["Working software in your hands within the first week", "Weekly check-ins — no disappearing for months", "Testing with your real data before launch", "Plain-English documentation handed over at the end"],
+    description: "We build in short cycles. Within days of starting, you'll see a working version, not a mockup or a slide deck. We check in regularly and make sure the system matches how your team works in real life.",
+    details: ["Working software in your hands within the first week", "Weekly check-ins, no disappearing for months", "Testing with your real data before launch", "Plain-English documentation handed over at the end"],
   },
   {
-    number: "03", icon: Shield, title: "Support", duration: "30–90 days included",
+    number: "03", icon: Shield, title: "Support", duration: "30 to 90 days included",
     headline: "We don't disappear after launch.",
-    description: "Every engagement includes post-launch support. Real systems surface edge cases — a supplier changes their format, a new employee joins, the business grows. Small adjustments during the support window cost you nothing.",
-    details: ["Monitored error alerts — we know before you do", "Fast response to bugs or data issues", "Minor adjustments at no extra charge", "Clear handoff if you want to take it in-house"],
+    description: "Every engagement includes post-launch support. Real systems surface edge cases: a supplier changes their format, a new employee joins, the business grows. Small adjustments during the support window cost you nothing.",
+    details: ["Monitored error alerts. We know before you do.", "Fast response to bugs or data issues", "Minor adjustments at no extra charge", "Clear handoff if you want to take it in-house"],
   },
 ];
 
@@ -36,7 +36,7 @@ export function Process() {
             Straightforward from start to finish.
           </h2>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: t.text4, marginTop: 14, maxWidth: 480, lineHeight: 1.72 }}>
-            No jargon, no long contracts, no open-ended timeline. Three stages — each with a clear purpose.
+            No jargon, no long contracts, no open-ended timeline. Three stages, each with a clear purpose.
           </p>
         </motion.div>
 
@@ -58,7 +58,7 @@ export function Process() {
                   )}
                 </div>
 
-                <div style={{ padding: "20px 0 52px 28px" }}>
+                <div style={{ padding: "20px 0 52px 28px" }} className="process-step-body">
                   <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: t.accentText, letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: 7, opacity: 0.7 }}>
                     {step.number} · {step.duration}
                   </div>
@@ -86,7 +86,7 @@ export function Process() {
       </div>
       <style>{`
         @media(max-width:700px){.process-row{grid-template-columns:48px 1fr!important}.process-inner{grid-template-columns:1fr!important}}
-        @media(max-width:640px){#process{padding:32px 20px 20px!important}.process-header-mb{margin-bottom:36px!important}}
+        @media(max-width:640px){#process{padding:64px 20px 0px!important}.process-header-mb{margin-bottom:24px!important}.process-step-body{padding-bottom:24px!important}}
       `}</style>
     </section>
   );

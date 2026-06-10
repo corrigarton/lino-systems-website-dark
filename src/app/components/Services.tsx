@@ -6,7 +6,7 @@ const bundles = [
   {
     icon: BarChart3, title: "Reporting", price: "From $4,800",
     tagline: "Connect your data. See your business clearly.",
-    description: "We pull your numbers from wherever they live — your POS, payroll, bank feed, or accounting software — and build a dashboard that updates itself. No more exporting spreadsheets on Sunday night.",
+    description: "We pull your numbers from wherever they live (your POS, payroll, bank feed, or accounting software) and build a dashboard that updates itself. No more exporting spreadsheets on Sunday night.",
     deliverables: ["Audit of your current data sources", "Up to 4 dashboard views (revenue, labor, etc.)", "Automated daily or weekly report emails", "30-day support after launch"],
   },
   {
@@ -18,14 +18,14 @@ const bundles = [
   {
     icon: Brain, title: "AI Tools", price: "From $9,600",
     tagline: "Practical AI that solves a specific problem.",
-    description: "Not hype — specific tools. We build AI that reads your documents (invoices, contracts, permits), pulls out the information you need, and sends it where it belongs.",
-    deliverables: ["Use-case scoping — we only build what makes sense", "Trained on your actual documents", "Built-in human review for edge cases", "60-day support after launch"],
+    description: "Not hype. Specific tools. We build AI that reads your documents (invoices, contracts, permits), pulls out the information you need, and sends it where it belongs.",
+    deliverables: ["Use-case scoping: we only build what makes sense", "Trained on your actual documents", "Built-in human review for edge cases", "60-day support after launch"],
     featured: true,
   },
   {
     icon: LayoutDashboard, title: "Custom Apps", price: "From $12,000",
     tagline: "Software built exactly for how your business works.",
-    description: "When no existing tool fits — job tracking, a client portal, an inventory system — we build it from scratch. Yours to own, built to last.",
+    description: "When no existing tool fits (job tracking, a client portal, an inventory system), we build it from scratch. Yours to own, built to last.",
     deliverables: ["Detailed requirements and flow mapping", "Full web application, mobile-friendly", "User roles and access control", "90-day support after launch"],
   },
 ];
@@ -43,7 +43,7 @@ export function Services() {
             Flat-scope engagements. You know what you're getting.
           </h2>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: t.text4, marginTop: 14, maxWidth: 540, lineHeight: 1.72 }}>
-            Each engagement has a defined scope, a fixed deliverable, and a clear price. No open-ended retainers. You get software — not a consultant on the clock.
+            Each engagement has a defined scope, a fixed deliverable, and a clear price. No open-ended retainers. You get software, not a consultant on the clock.
           </p>
         </motion.div>
 
@@ -101,7 +101,7 @@ export function Services() {
           })}
         </div>
       </div>
-      <style>{`@media(max-width:640px){#services{padding:32px 20px 36px!important}}`}</style>
+      <style>{`@media(max-width:640px){#services{padding:64px 20px 20px!important}}`}</style>
     </section>
   );
 }

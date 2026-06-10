@@ -7,13 +7,13 @@ const systems = [
   {
     id: "reporting", icon: BarChart3, tag: "Reporting & Dashboards",
     title: "One dashboard for everything",
-    plain: "Right now, your sales numbers are in your POS, your labor costs are in a payroll app, and your expenses are in QuickBooks. To see the full picture, you're exporting spreadsheets on Sunday night. We build a single dashboard that pulls it all together — automatically, in real time.",
-    bullets: ["Connects your POS, payroll, bank, and accounting software", "Updates itself — no more manual exports", "See profit, labor cost, and sales side by side", "Shareable reports for managers, owners, or investors"],
+    plain: "Right now, your sales numbers are in your POS, your labor costs are in a payroll app, and your expenses are in QuickBooks. To see the full picture, you're exporting spreadsheets on Sunday night. We build a single dashboard that pulls it all together, automatically, in real time.",
+    bullets: ["Connects your POS, payroll, bank, and accounting software", "Updates itself. No more manual exports.", "See profit, labor cost, and sales side by side", "Shareable reports for managers, owners, or investors"],
   },
   {
     id: "automation", icon: Workflow, tag: "Workflow Automation",
     title: "Stop doing the same thing twice",
-    plain: "If your team does the same task every week — sending invoices, entering data from one system into another, chasing approvals over text or email — that's something a computer can do instead. We map your repetitive processes and build software that runs them without anyone touching it.",
+    plain: "If your team does the same task every week (sending invoices, entering data from one system into another, chasing approvals over text or email), that's something a computer can do instead. We map your repetitive processes and build software that runs them without anyone touching it.",
     bullets: ["Invoices sent automatically when a job closes", "New customer info synced across your tools instantly", "Approval requests routed to the right person", "Alerts when something needs your attention"],
   },
   {
@@ -25,7 +25,7 @@ const systems = [
   {
     id: "apps", icon: LayoutDashboard, tag: "Custom Applications",
     title: "Software built for how you work",
-    plain: "Sometimes you need software that doesn't exist yet — because your business has a specific process that no off-the-shelf tool handles well. We build custom web applications: job tracking portals, client-facing request forms, internal approval systems, inventory tools.",
+    plain: "Sometimes you need software that doesn't exist yet, because your business has a specific process that no off-the-shelf tool handles well. We build custom web applications: job tracking portals, client-facing request forms, internal approval systems, inventory tools.",
     bullets: ["Job or project tracking boards for your team", "Client portals for estimates, approvals, or updates", "Inventory and supply management tools", "Replaces the spreadsheet your team has outgrown"],
   },
 ];
@@ -122,9 +122,9 @@ function AIPreview() {
 function PortalPreview() {
   const t = useTheme();
   const items = [
-    { ref: "JOB-0041", title: "Kitchen remodel — Princeville", status: "In Progress", pct: 65 },
-    { ref: "JOB-0040", title: "Solar panel install — Lihue", status: "Awaiting permit", pct: 30 },
-    { ref: "JOB-0039", title: "Deck build — Poipu", status: "Complete", pct: 100 },
+    { ref: "JOB-0041", title: "Kitchen remodel · Princeville", status: "In Progress", pct: 65 },
+    { ref: "JOB-0040", title: "Solar panel install · Lihue", status: "Awaiting permit", pct: 30 },
+    { ref: "JOB-0039", title: "Deck build · Poipu", status: "Complete", pct: 100 },
   ];
   const glass = { background: t.surface, border: `1px solid ${t.border}`, backdropFilter: "blur(12px)" as const };
   return (
@@ -238,7 +238,7 @@ export function Systems() {
         </div>
       </motion.div>
 
-      <style>{`@media(max-width:768px){.systems-card{grid-template-columns:1fr!important}} @media(max-width:640px){#systems{padding:32px 20px 36px!important}}`}</style>
+      <style>{`@media(max-width:768px){.systems-card{grid-template-columns:1fr!important}} @media(max-width:640px){#systems{padding:64px 20px 20px!important}}`}</style>
     </section>
   );
 }
