@@ -86,7 +86,7 @@ export function Process() {
       </div>
       <style>{`
         @media(max-width:700px){.process-row{grid-template-columns:48px 1fr!important}.process-inner{grid-template-columns:1fr!important}}
-        @media(max-width:640px){#process{padding:64px 20px 72px!important}.process-header-mb{margin-bottom:36px!important}}
+        @media(max-width:640px){#process{padding:32px 20px 20px!important}.process-header-mb{margin-bottom:36px!important}}
       `}</style>
     </section>
   );

@@ -238,7 +238,7 @@ export function Systems() {
         </div>
       </motion.div>
 
-      <style>{`@media(max-width:768px){.systems-card{grid-template-columns:1fr!important}} @media(max-width:640px){#systems{padding:64px 20px 72px!important}}`}</style>
+      <style>{`@media(max-width:768px){.systems-card{grid-template-columns:1fr!important}} @media(max-width:640px){#systems{padding:32px 20px 36px!important}}`}</style>
     </section>
   );
 }

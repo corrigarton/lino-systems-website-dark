@@ -101,7 +101,7 @@ export function Services() {
           })}
         </div>
       </div>
-      <style>{`@media(max-width:640px){#services{padding:64px 20px 72px!important}}`}</style>
+      <style>{`@media(max-width:640px){#services{padding:32px 20px 36px!important}}`}</style>
     </section>
   );
 }

@@ -282,7 +282,7 @@ export function Hero() {
   const t = useTheme();
 
   return (
-    <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden", paddingTop: 96, paddingBottom: 80 }}>
+    <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden", paddingTop: 96, paddingBottom: 20 }}>
       {/* Radial glow */}
       <div style={{ position: "absolute", inset: 0, background: t.isDark ? "radial-gradient(ellipse 80% 55% at 50% 0%, rgba(212,168,200,0.13) 0%, rgba(184,164,216,0.07) 45%, transparent 70%)" : "radial-gradient(ellipse 80% 55% at 50% 0%, rgba(212,168,200,0.12) 0%, rgba(184,164,216,0.06) 45%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -332,7 +332,7 @@ export function Hero() {
       {/* Diagram panel */}
       <motion.div
         initial={{ opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, delay: 0.42 }}
-        style={{ marginTop: 48, width: "100%", maxWidth: 900, padding: "0 24px", position: "relative", boxSizing: "border-box" }}
+        style={{ marginTop: 84, marginBottom: 0, marginLeft: "auto", marginRight: "auto", width: "100%", maxWidth: 900, padding: "0 24px", position: "relative", boxSizing: "border-box" }}
         className="hero-diagram-outer"
       >
         <div style={{
@@ -356,7 +356,7 @@ export function Hero() {
                 ))}
               </div>
               <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 500, color: t.text4, letterSpacing: "-0.01em" }}>
-                North Shore Builders <span style={{ color: t.text5 }}>— data flow</span>
+                North Shore Builders <span style={{ color: t.text5 }}>· data flow</span>
               </span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 5, padding: "3px 10px", borderRadius: 100, background: "rgba(22,163,74,0.07)", border: "1px solid rgba(22,163,74,0.18)" }}>
