@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/fitalign",
+      "destination": "https://fit-align-preface.vercel.app"
+    },
+    {
+      "source": "/fitalign/:path*",
+      "destination": "https://fit-align-preface.vercel.app/:path*"
+    }
+  ]
+}
