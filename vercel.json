@@ -2,12 +2,20 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/fitalign",
+      "source": "/course",
       "destination": "https://fit-align-preface.vercel.app"
     },
     {
-      "source": "/fitalign/:path*",
+      "source": "/course/:path*",
       "destination": "https://fit-align-preface.vercel.app/:path*"
+    },
+	{
+      "source": "/fitalign",
+      "destination": "https://landing-page-hyya.vercel.app/"
+    },
+    {
+      "source": "/fitalign/:path*",
+      "destination": "https://landing-page-hyya.vercel.app/:path*"
     }
   ]
 }
