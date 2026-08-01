@@ -13,7 +13,7 @@
       "source": "/fitalign",
       "destination": "https://fit-align-rho.vercel.app/"
     },
-    {
+    { 
       "source": "/fitalign/:path*",
       "destination": "https://fit-align-rho.vercel.app/:path*"
     }
