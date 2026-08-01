@@ -11,11 +11,11 @@
     },
 	{
       "source": "/fitalign",
-      "destination": "https://landing-page-hyya.vercel.app/"
+      "destination": "https://fit-align-rho.vercel.app/"
     },
     {
       "source": "/fitalign/:path*",
-      "destination": "https://landing-page-hyya.vercel.app/:path*"
+      "destination": "https://fit-align-rho.vercel.app/:path*"
     }
   ]
 }
